@@ -1,0 +1,35 @@
+# Yang wajib diisi
+# 1. nama worker (ubah juga di Cargo.toml)
+# 2. account id cloudflare
+# 3. KV Storage
+# 4. id KV Storage tadi
+# 5. UUID
+
+# ===============[ nama worker ]=================
+name = "www"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-05-23"
+minify = true
+
+# ===============[ account id ]==================
+account_id = "53ac31c229aa4fbba85e514794b09cd9"
+workers_dev = true
+
+# ===============[ KV STORAGE ]==================
+[[kv_namespaces]]
+binding = "JATIM"
+id = "79825e3ac2674e3b8d8c54ea52660126"
+
+[build]
+command = "cargo install worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install worker-build && worker-build --dev" }
+
+# =================[ UUID V4 ]===================
+[vars]
+UUID = "9bca64b8-9b4d-46ea-af92-da46a6d627f5"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/vapaxemu/ytta/refs/heads/main/web/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/vapaxemu/ytta/refs/heads/main/web/sub.html"
+
+# ------- Dimodifikasi oleh: @vpnjatimbot -------
